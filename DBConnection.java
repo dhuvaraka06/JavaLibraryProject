@@ -15,7 +15,7 @@ public class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Connect to the database
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/unisoft","root","admin@123");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/unisoft","root","root");
             System.out.println("✅ Connected to the database successfully!");
 
             conn.close();
