@@ -1,0 +1,55 @@
+-- CREATE DATABASE LIBRARY_MANAGEMENT;
+
+-- USE LIBRARY_MANAGEMENT;
+
+-- CREATE TABLE USER (
+--     USER_ID INT PRIMARY KEY,
+--     NAME VARCHAR(100) NOT NULL
+-- );
+
+-- CREATE TABLE BOOK (
+--     BOOK_ID INT PRIMARY KEY,
+--     TITLE VARCHAR(200) NOT NULL,
+--     AUTHOR VARCHAR(100) NOT NULL,
+--     GENRE VARCHAR(50),
+--     TOTAL_COPIES INT NOT NULL CHECK (TOTAL_COPIES >= 0),
+--     AVAILABLE_COPIES INT NOT NULL CHECK (AVAILABLE_COPIES >= 0)
+-- );
+
+-- CREATE TABLE BORROW_RECORD (
+--     RECORD_ID INT PRIMARY KEY,
+--     USER_ID INT NOT NULL,
+--     BOOK_ID INT NOT NULL,
+--     BORROW_DATE DATE NOT NULL,
+--     DUE_DATE DATE NOT NULL,
+--     RENEWED BOOLEAN DEFAULT FALSE,
+--     RETURN_DATE DATE DEFAULT NULL,
+--     FOREIGN KEY (USER_ID) REFERENCES user(USER_ID) ON DELETE CASCADE,
+--     FOREIGN KEY (BOOK_ID) REFERENCES book(BOOK_ID) ON DELETE CASCADE
+-- );
+
+-- show tables;
+
+-- INSERT INTO user (USER_ID, NAME) VALUES
+-- (1, 'Alice Johnson'),
+-- (2, 'Bob Smith'),
+-- (3, 'Charlie Lee'),
+-- (4, 'Diana Patel'),
+-- (5, 'Ethan Kumar');
+
+-- INSERT INTO book (BOOK_ID, TITLE, AUTHOR, GENRE, TOTAL_COPIES, AVAILABLE_COPIES) VALUES
+-- (1001, 'The Great Adventure', 'A.B. Writer', 'Fiction', 5, 3),
+-- (1002, 'Database Design Basics', 'C.D. Coder', 'Technology', 3, 2),
+-- (1003, 'History of Everything', 'E.F. Historian', 'History', 2, 1),
+-- (1004, 'Cooking Delights', 'G.H. Chef', 'Cookbook', 4, 4),
+-- (1005, 'Mystery of the Old House', 'I.J. Detective', 'Mystery', 6, 5);
+
+-- -- Active borrow (not yet returned)
+-- INSERT INTO borrow_record (RECORD_ID, USER_ID, BOOK_ID, BORROW_DATE, DUE_DATE, RENEWED, RETURN_DATE) VALUES
+-- (5001, 1, 1001, '2025-07-15', '2025-07-20', FALSE, NULL),
+-- (5002, 2, 1002, '2025-07-16', '2025-07-21', TRUE, NULL);
+
+-- -- Returned book
+-- INSERT INTO borrow_record (RECORD_ID, USER_ID, BOOK_ID, BORROW_DATE, DUE_DATE, RENEWED, RETURN_DATE) VALUES
+-- (5003, 3, 1003, '2025-07-10', '2025-07-15', FALSE, '2025-07-14');
+
